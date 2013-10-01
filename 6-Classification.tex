@@ -1,0 +1,114 @@
+\documentclass[a4paper,12pt,notitlepage]{article}
+
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[francais]{babel}
+\usepackage{amssymb,amsmath}
+\usepackage{fullpage}
+\usepackage[final]{pdfpages}
+
+\title{Calssification}
+\date{01.10.2013}
+\author{
+    Florian Reinhard\\
+    florian.reinhard@epfl.ch
+}
+
+\begin{document}
+    \maketitle
+
+    \section{Systèmes réluctants (sans aimant)}
+    \begin{itemize}
+        \item structure ferromagnétique
+        \item 1 ou plusieurs bobinages
+        \item la force vient du fait que le système tend à minimiser l'énergie
+            électromagnétique
+    \end{itemize}
+
+    \begin{equation}
+        F = \frac{1}{2}\sum^n_{i=1}\sum^n_{j=1}\frac{d\Lambda_{ij}}{dx}\Theta_i\Theta_j
+        \label{force}
+    \end{equation}
+    
+    Ça donne $ F = \frac{1}{2}\frac{dL}{dx}i^2 $ pour une bobine + du fer.
+
+    \begin{itemize}
+        \item Avantages:
+            \begin{itemize}
+                \item structure simple / bon marché
+                \item inertie faible -> assez bonne dynamique
+            \end{itemize}
+        \item Inconvénients:
+            \begin{itemize}
+                \item force proportionnelle à $ i^2 $
+                \item bruit et chocs sur $ i $
+                \item rendement faible
+                \item force toujours dans le même sens ($ F \propto i^2 $)
+            \end{itemize}
+    \end{itemize}
+
+    \section{Électrodynamique (aimant fixe, bobine mobile)}
+    On peut utiliser \emph{Laplace} pour résoudre tels systèmes.
+    (Voir exemple du 2ème cours.)
+
+    \begin{itemize}
+        \item Avantages:
+            \begin{itemize}
+                \item $ F \propto i $
+                \item inertie faible -> assez bonne dynamique
+            \end{itemize}
+        \item Inconvénients:
+            \begin{itemize}
+                \item Une bobine mobile est difficile à alimenter.
+                \item guidage de la bobine
+            \end{itemize}
+    \end{itemize}
+
+    \section{Électrodynamique (bobine fixe, aimant mobile)}
+
+    \begin{equation}
+        M = \frac{1}{2} \frac{d\Lambda_{a}}{d\alpha}\Theta_a^2
+            + \frac{d\Lambda_{ab}}{d\alpha}\Theta_a \Theta_b
+        \label{moment_bobine_fixe}
+    \end{equation}
+
+    La 1ère terme signifie la force due à l'aimant seul, qui veut se positionner
+    et la 2ème corresponde à \emph{Laplace}.
+
+    \begin{itemize}
+        \item Avantages:
+            \begin{itemize}
+                \item force volumique la plus élevée
+                \item pas d'alimentation mobile
+                \item $ F \propto i $
+            \end{itemize}
+        \item Inconvénients:
+            \begin{itemize}
+                \item guidage de l'aimant
+            \end{itemize}
+    \end{itemize}
+
+    \section{Systèmes hybrides ou réluctant polarisés}
+
+    On a des aimants et bobines fixes et une pièce ferromagnétique mobile.
+    (Par exemple un moteur pas-à-pas.)
+
+    \begin{equation}
+        M = \frac{1}{2}\frac{d\Lambda_{b}}{d\alpha}\Theta_b^2
+            + \frac{1}{2}\frac{d\Lambda_{a}}{d\alpha}\Theta_a^2
+            + \frac{d\Lambda_{ab}}{d\alpha}\Theta_a \Theta_b
+        \label{moment_bobine_fixe}
+    \end{equation}
+
+    \begin{itemize}
+        \item Avantages:
+            \begin{itemize}
+                \item bon rendement
+                \item conversion information à position simple
+            \end{itemize}
+        \item Inconvénients:
+            \begin{itemize}
+                \item cher et compliqué
+            \end{itemize}
+    \end{itemize}
+\end{document}
